@@ -69,13 +69,13 @@ export const deletePost = async (req,res) =>{
             return res.status(401).json({messege : "Unauthorized"})
         }
 
-        await Pot.deletePost({_id:post_id});
-
+        await Post.deleteOne({_id: post_id});
+        
         return res.json({messege:"Post Deleted"})
 
 
     }catch(err){
-        res.status(500).json({message:err.message});
+        res.status(500).json({messege:err.message});
     }
 }
 
