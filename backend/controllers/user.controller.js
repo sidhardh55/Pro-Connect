@@ -57,9 +57,10 @@ export const register = async (req, res) => {
         const profile = new Profile({  userId: newUser._id });
         
         await profile.save();
-        return res.json({message:"user created"})
-    }catch(error){
-        return res.status(400).json({message:"All fields required"})
+        return res.json({message:"user created"});
+        
+    }catch(err){
+        return res.status(400).json({message:err.message})
     }
 
 }

@@ -19,6 +19,9 @@ const authSlice = createSlice({
         reset:()=> initialState,
         handleLoginUser:(state) =>{
             state.message = "Hello"
+        },
+        emptyMessage:(state) =>{
+            state.message =""
         }
     },
 
@@ -26,7 +29,7 @@ const authSlice = createSlice({
         
         builder
         .addCase(loginUser.pending,(state) =>{
-            
+
             state.isLoading = true
             state.message = "Knocking the door ..."
 
@@ -57,9 +60,10 @@ const authSlice = createSlice({
             state.isLoading = false;
             state.isError = false;
             state.isSuccess = true;
-            state.loggedIn = true;
-            state.message = "Registeration Is Successfull"
-
+            
+            state.message = {
+                message:"Registeration Is Successfull, login"
+            }
         })
         .addCase(registerUser.rejected,(state,action) =>{
             state.isLoading = false;
@@ -69,4 +73,5 @@ const authSlice = createSlice({
     }   
 })
 
+export const {reset,emptyMessage}  = authSlice.actions; 
 export default authSlice.reducer;
