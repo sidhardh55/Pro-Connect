@@ -8,6 +8,9 @@ frontend/.env
 # Uploaded files
 backend/uploads/
 
+/node_modules
+package-lock.json
+package.json
 # Log files
 *.log
 
